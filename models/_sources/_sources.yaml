@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: raw_data
+    catalog: workspace
+    schema: raw_data
+    tables:
+      - name: v2107_00
+      - name: v2107_01
+      - name: v2107_02
+      - name: v2107_03
+      - name: v2107_04
+
+  - name: reference
+    catalog: workspace
+    schema: reference
+    tables:
+      - name: cim_telep
+      - name: feaor
+      - name: lgaa2407      
+      - name: telep
+      - name: gender
+      
+

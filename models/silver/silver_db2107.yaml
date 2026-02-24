@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: silver_db2107
+    description: >
+      Silver szintű, elemzésre kész tábla jövedelmi és demográfiai adatokkal.
+      A modell több referencia táblából (LGAA, FEÁOR, település, nem)
+      származó adatokat integrál egy személy szintű, denormalizált nézetbe.
+
+    columns:
+      - name: VIMA_ID
+        description: Személy azonosító.
+        tests:
+          - not_null
+
+      - name: NEM_MEGNEV
+        description: A személy neme (szöveg).
+
+      - name: AGE
+        description: A személy életkora (években).
+
+      - name: AGE_GROUP
+        description: A személy életkori csoportja.
+
+      - name: KSHIR
+        description: KSH, település azonosító
+
+      - name: TELEPULES_NEVE
+        description: A lakóhely településének neve.
+
+      - name: CSALALL
+        description: Családi állapot kód.
+
+      - name: LGAA518
+        description: Kereset mutató.
+        tests:
+          - not_null
+
+      - name: MEGNEV2
+        description: FEÁOR 2 számjegyű kategória megnevezése.
+
+      - name: MEGNEV4
+        description: FEÁOR 4 számjegyű foglalkozás megnevezése.

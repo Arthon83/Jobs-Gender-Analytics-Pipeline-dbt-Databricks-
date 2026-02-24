@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: gold_db2107
+    description: >
+      Megyei szintű nemi megoszlás Magyarországon, kiegészítve országos nemi arányokkal
+      A modell (megye + nem) szinten tartalmazza a
+      megyei arányt, az országos arányt, valamint ezek eltérését (diff).
+
+    columns:
+      - name: MEGYE_NEVE
+        description: >
+          A megye neve, amelyre a nemi megoszlás számolva van.
+        tests:
+          - not_null
+
+      - name: NEM_MEGNEV
+        description: >
+          A nem megnevezése (pl. Férfi, Nő).
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Férfi', 'Nő']
+
+      - name: megyei_arany
+        description: >
+          Az adott nem aránya a megyén belül.
+          Értéke 0 és 1 közé esik.
+        tests:
+          - not_null
+
+      - name: orszagos_arany
+        description: >
+          Az adott nem országos aránya az összes VIMA_ID alapján, window function segítségével számolva.
+          Minden megyében azonos érték ugyanarra a nemre.
+        tests:
+          - not_null
+
+      - name: diff_arany
+        description: >
+          A megyei arány eltérése az országos aránytól:
+          diff_arany = megyei_arany - orszagos_arany.
+          Pozitív: a megye felülreprezentált az adott nemben.
+          Negatív: alulreprezentált.
+        tests:
+          - not_null

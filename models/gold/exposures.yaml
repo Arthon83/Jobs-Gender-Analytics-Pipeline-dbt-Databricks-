@@ -1,0 +1,19 @@
+version: 2
+
+exposures:
+  - name: megyei_nemi_megoszlas_dashboard
+    label: "Foglalkoztatás -  Megyei nemi megoszlás"
+    type: dashboard
+    maturity: high
+
+    description: >
+      Megyei szintű nemi megoszlás és országos összevetés.
+      A dashboard a megyei arányt, az országos arányt és a különbséget
+      (diff_arany) vizualizálja.
+
+    owner:
+      name: Attila Jánkfalvi
+      email: jn.attila@gmail.com
+
+    depends_on:
+      - ref('gold_db2107')

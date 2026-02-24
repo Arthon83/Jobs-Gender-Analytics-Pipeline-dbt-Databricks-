@@ -1,0 +1,8 @@
+models:
+  - name: bronze_db2107
+    description: Nyers, összefűzött, tömörített (Single Source of Throught)
+    columns:
+      - name: VIMA_ID
+        tests:
+          - not_null
+          - unique

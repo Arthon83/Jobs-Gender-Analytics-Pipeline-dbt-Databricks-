@@ -1,0 +1,88 @@
+models:
+  - name: bronze_db2107_clean
+    description: "2107 feldolgozott, tisztított tábla"
+    columns:
+      - name: VIMA_ID
+        description: VIMA azonosító
+        tests:
+          - unique
+      
+      - name: CIM_ID
+        description: Cim azonosító
+        tests:
+          - not_null
+
+      - name: KSHIR
+        description: KSH település azonosító
+        tests:
+          - not_null
+
+      - name: NEM
+        description: NEM kódja 
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2]
+
+      - name: AGE
+        description: Életkor
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 130
+
+      - name: AGE_GROUP
+        description: Korcsoport kategória
+        tests:
+          - not_null
+
+      - name: CSALALL
+        description: Családi állapot
+        tests:
+          - not_null
+      
+      - name: HT_TYPE
+        description: Háztartás típus kód
+        tests:
+          - not_null
+      
+      - name: LWP
+        description: Pár jelenlét indikátor(binális)
+        tests:
+          - not_null
+      
+      - name: LWS
+        description: Testvér jelenlét indikátor(számosság)
+        tests:
+          - not_null
+      
+      - name: LWM
+        description: Anya jelenlét indikátor(binális)
+        tests:
+          - not_null
+       
+      - name: LWF
+        description: Apa jelenlét indikátor(binális)
+        tests:
+          - not_null
+
+
+      - name: LWCBIN
+        description: Gyermek jelenlét indikátor(binális)
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: LWSBIN
+        description: Testvér jelenlét indikátor(binális)
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: LWSZBIN
+        description: Szülői jelenlét indikátor(binális)
+        tests:
+          - accepted_values:
+              values: [0, 1]
+  
