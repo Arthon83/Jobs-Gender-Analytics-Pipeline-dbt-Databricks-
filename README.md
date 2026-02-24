@@ -4,4 +4,6 @@
 This project represent a layered Medallion (Bronze–Silver–Gold) data transformation pipeline built with dbt on Databricks, integrating multiple raw employment datasets with reference dimensions to produce analytics-ready models and documented lineage for county-level gender distribution insights.
 
 ### Lineage graph
+![Lineage Graph](assets/lineage.png)
+
 
